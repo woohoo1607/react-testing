@@ -1,5 +1,5 @@
 import { ThemeProvider } from "react-jss";
-import { theme } from "./src/App";
+import { theme } from "./App";
 import { mount, shallow } from "enzyme";
 
 function MyThemeProvider({ children }) {
