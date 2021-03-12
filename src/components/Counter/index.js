@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import Button from "../UI/Button";
+import { createUseStyles, useTheme } from "react-jss";
 
-const Counter = () => {
+let useStyles = createUseStyles((theme) => ({
+  counter: {
+    color: theme.colorPrimary,
+  },
+}));
+
+const Counter = ({ ...props }) => {
+  const theme = useTheme();
+  const classes = useStyles({ ...props, theme });
   const [count, setCount] = useState(0);
   return (
     <div>
-      <p className="counter">{count}</p>
+      <p className={classes.counter}>{count}</p>
       <Button
         className="counter-btn"
         title="click me"
