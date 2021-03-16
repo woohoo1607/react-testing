@@ -1,4 +1,3 @@
-/*
 import React from "react";
 import Counter from "./index";
 import { mountWithTheme, shallowWithTheme } from "../../testWrappers";
@@ -24,4 +23,3 @@ describe("test Counter component", () => {
     expect(counter.find("p").text()).toEqual("1");
   });
 });
-*/

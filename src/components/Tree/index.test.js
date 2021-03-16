@@ -1,7 +1,6 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
-import { LeafCard, TreeLeaf } from "./index";
-import { StyledTreeItem } from "./styled";
+import CustomizedTreeView, { LeafCard, TreeLeaf } from "./index";
 
 const item = {
   id: "0",
@@ -37,14 +36,21 @@ describe("list test", () => {
     expect(card.text()).toEqual(item.text);
   });
 
-  it("treeleaf mount", () => {
-    const wrapper = mount(<TreeLeaf item={items} />);
-    console.log(wrapper.debug());
-  });
-
-  it("treeleaf shallow", () => {
+  it("treeleaf first level test", () => {
     const tree = shallow(<TreeLeaf item={items} />);
     expect(tree.find(TreeLeaf)).toHaveLength(4);
     expect(tree.find(LeafCard)).toHaveLength(1);
+  });
+
+  it("CustomizedTreeView mount", () => {
+    const tree = mount(<CustomizedTreeView />);
+    expect(tree.find("li")).toHaveLength(9);
+  });
+
+  it("CustomizedTreeView shallow", () => {
+    const tree = shallow(<CustomizedTreeView />);
+    const firstLevel = tree.find(TreeLeaf).dive();
+    expect(firstLevel.find(TreeLeaf)).toHaveLength(2);
+    expect(firstLevel.find(LeafCard)).toHaveLength(1);
   });
 });

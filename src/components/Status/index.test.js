@@ -1,4 +1,3 @@
-/*
 import React from "react";
 import * as redux from "react-redux";
 import Status from "./index";
@@ -43,4 +42,3 @@ describe("test redux", () => {
     expect(useDispatchSpy).toHaveBeenCalledWith(changeStatus("ready"));
   });
 });
-*/
